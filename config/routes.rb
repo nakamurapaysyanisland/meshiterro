@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: 'admin/sessions'
+  }
+  namespace :admin do
+    get 'dashboards', to: 'dashboards#index' #/admin/dashbordsにアクセスするとadmin/dashboards_controller.rbのindexアクションを処理
+  end
+
+
   devise_for :users
   root to: "homes#top"
   get "/homes/about" => "homes#about", as: "about"
