@@ -1,4 +1,4 @@
-class PostCommentsController < ApplicationController
+class Public::PostCommentsController < ApplicationController
 
     def creare 
         post_image = PostImage.find(params[:id])
